@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <link rel="stylesheet" href="style.css">
+
+    <title>OPENPROJECT - AUTIS</title>
+
+</head>
+
+<body>
+    <header>
+    <button class="btnLogin">SB</button>
+    <img src="https://autis.com/wp-content/uploads/2024/05/autis_logo.png">
+    <h1>OpenProject</h1>
+    </header>
+    <p id="resultado"></p>
+
+    <script>
+
+    fetch('http://localhost:8080/api/v3/projects', {
+    headers: {
+    'Authorization': 'Basic ' + btoa('apikey:672d2e8fb1f18a844ce18445096e578ed113980fbb9b98dfcc1180c80f70d915')
+    }
+})
+.then(response => response.json())
+.then(data => {
+
+ // procesar los datos de proyectos
+
+    document.querySelector("#resultado").innerHTML=data.abilities[0].ability.name;
+});
+
+</script>
+
+    <footer>
+    &copy; 2025 AUTIS
+    </footer>
+    
+</body>
+</html>
